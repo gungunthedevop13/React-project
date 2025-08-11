@@ -1,0 +1,94 @@
+.welcome-darkpage {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background: radial-gradient(ellipse at bottom, #0a0f24 0%, #000000 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+.stars-background {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: url('https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/star.png');
+  animation: moveStars 60s linear infinite;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+@keyframes moveStars {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}
+
+.text-container {
+  z-index: 2;
+  padding: 4rem;
+  flex: 1;
+}
+
+.title-top {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ffffffdd;
+  text-align: left;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px #00c6ff88;
+}
+
+.bright-subheading {
+  font-size: 1.6rem;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 7rem;
+  text-shadow: 0 0 15px #00f2fe;
+  
+}
+
+.quote {
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #cccccc;
+  
+}
+
+.start-btn {
+  padding: 0.9rem 2rem;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.start-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 114, 255, 0.6);
+}
+
+.lottie-section {
+  flex: 1;
+  max-width: 45vw;
+  padding-right: 4vw;
+  z-index: 1;
+}
+
+.welcome-lottie {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+}

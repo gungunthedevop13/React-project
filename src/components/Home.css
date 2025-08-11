@@ -1,0 +1,176 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.home-wrapper {
+  display: flex;
+  height: 100vh;
+  background: linear-gradient(135deg, #101010, #0c0c0c, #030303);
+  background-size: 400% 400%;
+  animation: backgroundMove 15s ease infinite;
+  color: #fff;
+  overflow: hidden;
+}
+
+@keyframes backgroundMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.sidebar {
+  width: 230px;
+  padding: 2rem 1rem;
+  background: rgba(20, 20, 30, 0.6);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: slideInLeft 1s ease forwards;
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+.logo {
+  font-size: 1.6rem;
+  color: #72c2ff;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.nav-links button {
+  background: transparent;
+  border: none;
+  color: #eee;
+  padding: 0.75rem;
+  text-align: left;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.nav-links button:hover {
+  background: #2a2a4e;
+  box-shadow: 0 0 10px #00f7ff44;
+  color: #fff;
+}
+
+.logout {
+  background-color: #ff4b5c;
+  border: none;
+  color: white;
+  padding: 0.6rem;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.logout:hover {
+  background-color: #ff2e44;
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.greeting-heading {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  text-align: center;
+}
+
+.glow-heading {
+  text-shadow: 0 0 12px #00ffe1, 0 0 20px #00ffe1;
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(0, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 255, 255, 0.1);
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.note-area {
+  width: 100%;
+  height: 150px; /* or whatever height you want */
+  resize: none;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  outline: none;
+  overflow-y: scroll; /* enable vertical scroll */
+  scrollbar-width: none; /* Firefox */
+  font-family: 'Comic Sans MS', cursive, sans-serif; /* cursive style */
+  color: #d1c4e9; /* a soft lavender purple */
+
+}
+
+/* Hide scrollbar for Chrome, Edge and Safari */
+.note-area::-webkit-scrollbar {
+  display: none;
+}
+ .note-area:focus {
+  border-color: #7e57c2; /* deeper purple on focus */
+  background-color: rgba(126, 87, 194, 0.1);
+}
+
+
+.note-area::placeholder {
+  color: #ccc;
+}
+.daily-focus-textarea {
+  width: 100%;
+  resize: none;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-size: 1rem;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.daily-focus-textarea:focus {
+  border-color: #3b82f6; /* subtle blue on focus */
+}

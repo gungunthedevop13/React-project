@@ -1,0 +1,507 @@
+/* Root styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #111;
+  color: #eaeaea;
+}
+
+/* Container */
+.notes-container {
+  display: flex;
+  height: 100vh;
+  background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background: #181818;
+  color: #eaeaea;
+  border-right: 1px solid #2e2e2e;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.4);
+}
+
+.sidebar-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #f5f5f5;
+  text-align: center;
+}
+
+.sidebar-header input {
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  background: #2c2c2c;
+  color: #eaeaea;
+}
+
+.notes-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.note-preview {
+  background: #2a2a2a;
+  border-radius: 10px;
+  padding: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #3d3d3d;
+}
+
+.note-preview:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.note-preview h4 {
+  margin: 0 0 6px 0;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.note-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 6px;
+}
+
+.note-actions {
+  display: flex;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+.note-actions svg:hover {
+  color: #f05454;
+  transition: color 0.3s ease;
+}
+
+/* Editor Area */
+.main-editor {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* Toolbar */
+.editor-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #222;
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.02);
+  margin-bottom: 15px;
+}
+
+.editor-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.editor-toolbar-actions button {
+  background: #292929;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.editor-toolbar-actions button:hover {
+  background: #3a3a3a;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+}
+
+/* Tag Input */
+.tag-form-inline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tag-form-inline input {
+  padding: 6px 10px;
+  background: #2c2c2c;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 6px;
+}
+
+/* Tag Display */
+.tag-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Quill Editor */
+.quill-editor {
+  flex: 1;
+  background-color: black;
+  color: #eaeaea;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.ql-toolbar {
+  background: #2b2b2b;
+  border: none;
+  border-bottom: 1px solid #444;
+}
+
+.ql-container {
+  background: #1e1e1e;
+  color: #eee;
+  border: none;
+  min-height: 400px;
+}
+.ql-editor table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+
+.ql-editor th,
+.ql-editor td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+
+/* Tag Badges */
+.tag-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: #fff;
+  font-weight: bold;
+  background: #444;
+  animation: popIn 0.3s ease-in-out;
+}
+
+
+.notebook-buttons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.notebook-buttons button {
+  padding: 6px 10px;
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.notebook-buttons button:hover {
+  background-color: #333;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
+}
+
+/* Notebook Selectors */
+.notebook-selectors {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-direction: column;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.notebook-selectors select {
+  padding: 8px 12px;
+  background-color: #1e1e1e;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 8px;
+  font-size: 14px;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23ccc' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  transition: all 0.3s;
+}
+
+.notebook-selectors select:hover,
+.notebook-selectors select:focus {
+  border-color: #888;
+  background-color: #2a2a2a;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar */
+
+
+.sticky-note {
+  width: 250px;
+  min-height: 150px;
+  padding: 10px ;
+  border-radius: 10px;
+  margin: 10px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  display: inline-block;
+  vertical-align: top;
+  color: #0a0a0a;
+  overflow: hidden;
+}
+
+
+
+
+.sticky-notes-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.sticky-note {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+
+
+.sticky-note button {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+
+
+.sticky-toggle-button {
+  margin-left: 10px;
+  padding: 6px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #333;
+  color: #73812a;
+  border: none;
+  border-radius: 5px;
+}
+
+.sticky-panel {
+  position: absolute;
+  background: #090a00f8;
+  color: rgb(239, 196, 56);
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 999;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  min-width: 250px;
+  max-width: 500px;
+  animation: subtlePulse 6s ease-in-out infinite;
+
+}
+
+.sticky-panel-header {
+  display: flex;
+  justify-content: space-between;
+  background: #2d2d2d;
+  padding: 5px 10px;
+  cursor: move;
+  font-weight: bold;
+  border-radius: 8px 8px 0 0;
+}
+
+.sticky-panel-content {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 10px 0;
+}
+
+.sticky-note {
+  background: #77682b;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 6px;
+  position: relative;
+}
+
+.sticky-note .delete-sticky {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
+
+.resize-handle {
+  width: 10px;
+  height: 100%;
+  background: transparent;
+  cursor: ew-resize;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.sticky-note-input {
+  min-height: 100px;
+  padding: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background: transparent;
+  color: rgb(10, 10, 10); /* Or suitable for dark theme */
+  width: 100%;
+  overflow-y: auto;
+}
+
+.sticky-note-body {
+  min-height: 120px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  outline: none;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: normal;
+  font-family: 'Segoe UI', sans-serif;
+  cursor: text;
+  color: rgb(10, 10, 10);
+  background: transparent;
+}
+
+
+
+  
+
+.sticky-note:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.35);
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes subtlePulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.01); }
+  100% { transform: scale(1); }
+}
+
+.add-sticky-button {
+  background-color: #f4d03f;
+  color: #222;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  animation: glowPulse 4s infinite ease-in-out;
+}
+
+.add-sticky-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 200, 0, 0.6);
+}
+
+.add-sticky-button:active {
+  animation: buttonBounce 0.4s ease;
+}
+@keyframes buttonBounce {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.1); }
+  50%  { transform: scale(0.95); }
+  70%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 0px rgba(255, 223, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(255, 223, 0, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(255, 223, 0, 0.5);
+  }
+}
+.sticky-panel-content {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 10px 0;
+
+  /* Hide scrollbar visually, keep scroll functional */
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE 10+ */
+}
+
+.sticky-panel-content::-webkit-scrollbar {
+  display: none;                /* Chrome, Safari, Opera */
+}
+
+.ql-font-roboto {
+  font-family: 'Roboto', sans-serif;
+}
+.ql-font-georgia {
+  font-family: Georgia, serif;
+}
+.ql-font-arial {
+  font-family: Arial, sans-serif;
+}
+.ql-font-tahoma {
+  font-family: Tahoma, sans-serif;
+}
+.ql-font-verdana {
+  font-family: Verdana, sans-serif;
+}

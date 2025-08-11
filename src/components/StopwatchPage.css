@@ -1,0 +1,61 @@
+/* StopwatchPage.css */
+
+body {
+  font-family: 'Fira Code', monospace;
+  background-color: #0d1117;
+  color: #c9d1d9;
+  margin: 0;
+  padding: 0;
+}
+
+.stopwatch-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5rem;
+  text-align: center;
+}
+
+h1 {
+  color: #58a6ff;
+  margin-bottom: 2rem;
+}
+
+.time-display {
+  font-size: 4rem;
+  color: #3fb950;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+}
+
+.controls button {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  font-size: 1rem;
+  padding: 0.7rem 1.5rem;
+  margin: 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.controls button:hover {
+  background-color: #1c1f26;
+  border-color: #58a6ff;
+}
+
+.controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.back-button {
+  margin-top: 2rem;
+  background: none;
+  border: none;
+  color: #58a6ff;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: underline;
+}

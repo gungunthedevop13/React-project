@@ -1,0 +1,197 @@
+/* Reset Defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Body Background */
+body {
+  background: linear-gradient(to bottom right, #1e293b, #0f172a);
+  background-attachment: fixed;
+  color: #f1f5f9;
+}
+
+/* Container */
+.timetable-container {
+  max-width: 100%;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 1s ease;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Heading */
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #e0f2fe;
+}
+
+/* Header Row */
+.timetable-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Add Button */
+.add-slot-btn {
+  background-color: #38bdf8;
+  color: #0f172a;
+  padding: 10px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(56, 189, 248, 0.4);
+}
+
+.add-slot-btn:hover {
+  background-color: #0ea5e9;
+  transform: scale(1.05);
+}
+
+/* Scroll Wrapper */
+.timetable-scroll {
+  overflow-x: auto;
+}
+
+/* Table Styling */
+.timetable {
+  width: 100%;
+  min-width: 800px;
+  border-collapse: collapse;
+  table-layout: auto;
+  animation: fadeIn 1.2s ease;
+}
+
+/* Table Header Cells */
+.timetable th {
+  background-color: rgba(15, 23, 42, 0.95);
+  color: #bae6fd;
+  padding: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 1px solid #334155;
+}
+
+/* Table Data Cells */
+.timetable td {
+  border: 1px solid #334155;
+  padding: 0.6rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  color: #e2e8f0;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  max-width: 240px;
+  min-width: 150px;
+  text-align: center;
+  vertical-align: top;
+  position: relative;
+  border-radius: 4px;
+}
+
+.timetable td:hover {
+  background-color: rgba(56, 189, 248, 0.1);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+  z-index: 1;
+}
+
+/* Day Column Label */
+.day-label {
+  font-weight: bold;
+  background-color: rgba(148, 163, 184, 0.1);
+  color: #cbd5e1;
+}
+
+/* Text Inputs */
+.timetable td textarea {
+  width: 100%;
+  min-height: 40px;
+  max-width: 220px;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  padding: 6px;
+  resize: none;
+  color: #1e293b;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  transition: height 0.2s ease;
+}
+
+/* Focused Input Styling */
+.timetable td textarea:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  box-shadow: 0 0 6px rgba(34, 211, 238, 0.5);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timetable-container {
+    padding: 1rem 0.5rem;
+  }
+
+  .timetable td,
+  .timetable th {
+    padding: 0.4rem;
+    font-size: 13px;
+  }
+
+  .add-slot-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .timetable td textarea {
+    font-size: 12px;
+  }
+}
+.remove-slot-btn {
+  background-color: #f87171;
+  color: white;
+  padding: 10px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-left: 0.75rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.4);
+}
+
+.remove-slot-btn:hover {
+  background-color: #dc2626;
+  transform: scale(1.05);
+}
+.timetable-header .btn-group {
+  display: flex;
+}

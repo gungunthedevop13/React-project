@@ -1,0 +1,56 @@
+/* BoardView.css */
+
+.board-view {
+  display: flex;
+  gap: 16px;
+  padding: 20px 0;
+  overflow-x: auto;
+  background-color: #000;
+  
+}
+
+.board-column {
+  flex: 1;
+  min-width: 250px;
+  background-color: #0e0e0e;
+  border-radius: 10px;
+  padding: 16px;
+  color: #fff;
+}
+
+.board-column h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #dcdcdc;
+}
+
+.column-tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.board-card {
+  background-color: #050505;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: grab;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.board-card strong {
+  display: block;
+  font-size: 14px;
+  color: #fff;
+}
+
+.board-card p {
+  font-size: 13px;
+  color: #ccc;
+  margin: 4px 0;
+}
+
+.board-card small {
+  font-size: 12px;
+  color: #999;
+}

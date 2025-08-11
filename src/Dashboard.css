@@ -1,0 +1,314 @@
+/* Dashboard.css */
+
+/* ---------- Base ---------- */
+body {
+  background-color: #000; /* PURE black */
+  color: #e0e0e0;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  font-size: x-small;
+}
+
+/* ---------- Main Container ---------- */
+.dashboard {
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px;
+  background: #000;
+  font-size: x-small;
+}
+
+/* ---------- Header ---------- */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  font-size: medium;
+}
+
+.dashboard-header h1 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #fff;
+}
+.main-content {
+  flex: 1;
+  background-color: #000 !important; /* Fully black main area */
+  padding: 40px;
+  overflow-y: auto;
+  color: #e0e0e0;
+  font-size: x-small;
+}
+
+
+/* ---------- Buttons ---------- */
+button,
+.task-actions button {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  border: 1px solid #333;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  font-size: 12px;
+  
+}
+
+button:hover,
+.task-actions button:hover {
+  background-color: hsl(355, 78%, 56%);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.cancel-button {
+
+  background-color: #222;
+  border: 1px solid #444;
+  gap: 2px;
+}
+
+.cancel-button:hover {
+  background-color: hsl(355, 78%, 56%);;
+}
+
+/* ---------- Input Controls ---------- */
+.controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.controls input,
+.controls select {
+  background-color: #111;
+  color: #e0e0e0;
+  border: 1px solid #333;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+/* ---------- Task Form ---------- */
+.task-form {
+  display: grid;
+  gap: 12px;
+  background-color: #111;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 60, 60, 0.15);
+  margin-bottom: 30px;
+  animation: expandFade 0.3s ease;
+}
+
+.task-form input,
+.task-form select,
+.task-form textarea {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #333;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+/* ---------- Task List ---------- */
+.task-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+ background-color: #111;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  box-shadow: 0 2px 6px rgba(255, 0, 0, 0.05);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+    font-size: 14px; /* Smaller than default */
+
+}
+
+.task-item:hover {
+  background-color: #191919;
+  transform: translateY(-2px);
+}
+
+.task-item.completed {
+  opacity: 0.6;
+}
+
+/* ---------- Task Left ---------- */
+.task-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inline-edit {
+  border: none;
+  background: transparent;
+  padding: 4px 2px;
+  font-size: 15px;
+  color: inherit;
+  transition: border 0.2s;
+  border-bottom: 1px solid transparent;
+}
+
+.inline-edit:focus {
+  outline: none;
+  border-bottom: 1px solid #e63946;
+  background-color: #0a0a0a;
+  border-radius: 4px;
+}
+
+.inline-edit.title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-bottom: 4px;
+}
+
+/* ---------- Task Actions ---------- */
+.task-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.task-title span,
+.task-meta,
+.task-note,
+.subtask-item {
+  font-size: 13px;
+}
+
+
+.task-actions .delete-btn {
+  background-color: #5c1b1b;
+}
+
+.task-actions .delete-btn:hover {
+  background-color: #ff3c3c;
+}
+
+/* ---------- Subtasks ---------- */
+.subtask-list {
+  padding-left: 12px;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  list-style: none;
+  padding-left: 1rem;
+
+}
+
+.subtask-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background-color: #0a0a0a;
+  transition: background 0.3s;
+}
+
+.subtask-list li:hover {
+  background-color: #151515;
+}
+
+.subtask-list li .done {
+  color: #888;
+}
+
+/* ---------- Tag Dropdown ---------- */
+.custom-dropdown {
+  position: relative;
+}
+
+.dropdown-header {
+  background-color: #111;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  cursor: pointer;
+  color: #e0e0e0;
+  font-size: x-small;
+}
+
+.dropdown-options {
+  position: absolute;
+  top: 100%;
+  background-color: #000;
+  border: 1px solid #333;
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 5;
+  margin-top: 4px;
+  width: 200px;
+  font-size: x-small;
+}
+
+.dropdown-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  color: #ccc;
+  font-size: x-small;
+}
+
+/* ---------- Add Button ---------- */
+.add-task-button {
+  background-color: #e63946;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  transition: all 0.2s;
+  font-size: x-small;
+}
+
+.add-task-button:hover {
+  background-color: #ff3c3c;
+}
+
+/* ---------- Animations ---------- */
+@keyframes expandFade {
+  from {
+    opacity: 0;
+    transform: scale(0.98) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-expand {
+  animation: expandFade 0.3s ease;
+}
+.done {
+  color: #888;
+}
+.task-tags .tag-badge {
+  font-size: 12px;
+  padding: 3px 8px;
+}
+
+.task-actions button {
+  font-size: 12px;
+  padding: 6px 10px;
+}
