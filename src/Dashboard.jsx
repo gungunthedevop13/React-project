@@ -5,7 +5,6 @@ import { DragDropContext } from "react-beautiful-dnd";
 
 import ListView from "./components/ListView";
 
-
 import "./Dashboard.css";
 
 const defaultTask = {
@@ -52,16 +51,27 @@ const DashboardPage = () => {
 
   const addTask = () => {
     if (!newTask.title.trim()) return;
-    const sessions = Math.ceil(newTask.estimatedMinutes / 25);
+
+    const SESSION_TOTAL_MINUTES = 25 + 5; // 25 work + 5 break
+    const rawMinutes = parseInt(newTask.estimatedMinutes, 10) || 0;
+
+    // ✅ Auto-adjust to full Pomodoro cycles
+    const adjustedMinutes =
+      Math.ceil(rawMinutes / SESSION_TOTAL_MINUTES) * SESSION_TOTAL_MINUTES;
+
+    const sessions = Math.ceil(adjustedMinutes / SESSION_TOTAL_MINUTES);
+
     const taskWithExtras = {
       ...newTask,
+      estimatedMinutes: adjustedMinutes, // store adjusted time
       id: Date.now().toString(),
-      status: "To Do", // ✅ required for BoardView
+      status: "To Do",
       sessions,
       completed: false,
       createdAt: Date.now(),
       subtasks: [],
     };
+
     setTasks((prev) => [...prev, taskWithExtras]);
     setNewTask(defaultTask);
     setShowTagsDropdown(false);
@@ -89,7 +99,7 @@ const DashboardPage = () => {
           completed: !task.completed,
           completedAt: !task.completed ? Date.now() : null,
           dueDate: nextDue ? nextDue.toISOString().split("T")[0] : task.dueDate,
-          status: !task.completed ? "Done" : task.status, // ✅ optional: update status on completion
+          status: !task.completed ? "Done" : task.status,
         };
 
         if (!task.completed && toggled.completed) {
@@ -98,7 +108,8 @@ const DashboardPage = () => {
           const alreadyLogged = history.some(
             (h) =>
               h.id === task.id &&
-              new Date(h.completedAtISO).toDateString() === new Date().toDateString()
+              new Date(h.completedAtISO).toDateString() ===
+                new Date().toDateString()
           );
 
           if (!alreadyLogged) {
@@ -123,7 +134,7 @@ const DashboardPage = () => {
 
   const startPomodoro = (task) => {
     localStorage.setItem("activeTask", JSON.stringify(task));
-    navigate("/focus");
+    navigate("/dashboard/focus");
   };
 
   const deleteTask = (id) => {
@@ -211,9 +222,6 @@ const DashboardPage = () => {
 
   return (
     <div className="dashboard">
-
-      
-
       {/* ✅ Filters */}
       <div className="controls">
         <input
