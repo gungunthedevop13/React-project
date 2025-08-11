@@ -44,7 +44,7 @@ const App = () => {
       <Route path="/timetable" element={<TimetablePage />} />
       <Route path="progress" element={<ProgressPage tasks={tasks} />} />
       <Route path="/ai-assistant" element={<AIStudyAssistantPage />} />
-<Route path="/calendar" element={<Calendar />} />
+      <Route path="/calendar" element={<Calendar />} />
 
       {/* Dashboard Layout Routes */}
       <Route path="/dashboard" element={<SidebarLayout />}>
