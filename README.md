@@ -1,12 +1,28 @@
-# React + Vite
+Synaptica
+A sleek, all-in-one study planner to manage tasks, track time, and stay focused — built for learners who want results.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features
+. Smart Dashboard – Create, edit, and filter tasks with tags, priorities, and due dates
 
-Currently, two official plugins are available:
+. Focus Mode – Built-in Pomodoro timer & session locking to stay distraction-free
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+. Flexible Views – Switch between List, Kanban Board, and Calendar layouts
 
-## Expanding the ESLint configuration
+. Task Management – Subtasks, recurring tasks, sorting, and quick search
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+. Customizable Tags – Organize by Work, Personal, Urgent, and more
+
+. Progress Tracking – Visual charts to see your achievements
+
+. Offline Ready – Works without an internet connection using local storage
+
+Perfect For
+Students, freelancers, and anyone who wants to plan effectively, study smarter, and make consistent progress.
+
+Tech Stack
+. React + Vite
+
+. LocalStorage for persistence
+
+. Custom UI inspired by Notion
+
