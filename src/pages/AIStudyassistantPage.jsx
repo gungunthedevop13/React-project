@@ -3,7 +3,7 @@ import axios from "axios";
 import Lottie from "lottie-react";
 import animationData from "../assets/Robot says hello.json";
 
-import "./AIStudyAssistantPage.css";
+import "./AIStudyassistantPage.css";
 
 const tools = {
   summarizer: {
