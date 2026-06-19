@@ -10,7 +10,7 @@ import NotesPage from "./components/NotesPage";
 import ProfilePage from "./components/ProfilePage";
 import TimetablePage from "./pages/TimetablePage";
 import ProgressPage from "./pages/ProgressPage";
-import AIStudyAssistantPage from "./pages/AIStudyAssistantPage";
+import AIStudyAssistantPage from "./pages/AIStudyassistantPage";
 import Calendar from "./pages/Calendar"; // Adjust if the path differs
 
 // Layouts

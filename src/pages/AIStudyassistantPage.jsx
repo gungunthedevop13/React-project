@@ -69,43 +69,56 @@ const AIStudyAssistantPage = () => {
     const utterance = new SpeechSynthesisUtterance(text);
     window.speechSynthesis.speak(utterance);
   };
+const handleSend = async () => {
+  if (!inputText.trim()) return;
 
-  const handleSend = async () => {
-    if (!inputText.trim()) return;
+  const userMessage = { role: "user", content: inputText };
+  const updatedMessages = [...messages, userMessage];
+  setMessages(updatedMessages);
+  setInputText("");
+  setLoading(true);
 
-    const userMessage = { role: "user", content: inputText };
-    const updatedMessages = [...messages, userMessage];
-    setMessages(updatedMessages);
-    setInputText("");
-    setLoading(true);
+  try {
+    console.log("Sending request with messages:", [
+      { role: "system", content: tools[selectedTool].systemPrompt },
+      ...updatedMessages,
+    ]);
 
-    try {
-      const response = await axios.post(
-        "https://openrouter.ai/api/v1/chat/completions",
-        {
-          model: "mistralai/mistral-small-3.1-24b-instruct:free",
-          messages: [
-            { role: "system", content: tools[selectedTool].systemPrompt },
-            ...updatedMessages,
-          ],
+    const response = await axios.post(
+      "https://openrouter.ai/api/v1/chat/completions",
+      {
+        model: "mistralai/mistral-small-3.1-24b-instruct:free",
+        messages: [
+          { role: "system", content: tools[selectedTool].systemPrompt },
+          ...updatedMessages,
+        ],
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${import.meta.env.VITE_OPENROUTER_API_KEY}`,
+          "Content-Type": "application/json",
         },
-        {
-          headers: {
-            Authorization: `Bearer ${import.meta.env.VITE_OPENROUTER_API_KEY}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      }
+    );
 
-      const aiMessage = response.data.choices[0].message;
-      setMessages((prev) => [...prev, aiMessage]);
-      speak(aiMessage.content);
-    } catch (error) {
-      console.error("API error:", error);
-    } finally {
+    console.log("API response:", response.data);
+
+    if (!response.data?.choices?.[0]?.message) {
+      console.error("No message in API response!");
       setLoading(false);
+      return;
     }
-  };
+
+    const aiMessage = response.data.choices[0].message;
+    setMessages((prev) => [...prev, aiMessage]);
+    speak(aiMessage.content);
+  } catch (error) {
+    console.error("API error:", error.response?.data || error.message);
+    alert("Error from API: " + (error.response?.data?.message || error.message));
+  } finally {
+    setLoading(false);
+  }
+};
 
   const handleExportText = () => {
     const text = messages.map((m) => `${m.role.toUpperCase()}: ${m.content}`).join("\n\n");
